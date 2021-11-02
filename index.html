@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Eat the Rich</h1>
+
+    <!-- 
+    <div id="countdown">
+      <div id="countdown-number"></div>
+      <svg>
+        <circle r="18" cx="20" cy="20"></circle>
+      </svg>
+    </div>
+    <h2 id="seconds-counter"></h2>
+  -->
+    <div class="main-content">
+      <canvas id="my-canvas" width="1100" height="800"></canvas>
+      <div>
+        <div class="score">
+          <p>Time left:</p>
+          <p id="thetime">&#8734;</p>
+          <p>You score is:</p>
+          <p id="thescore">0</p>
+        </div>
+        <div id="skulls">
+          <p>Level</p>
+          <div class="img-skull"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameoverscreen" class="container">
+      <h1>You lost!!!!!</h1>
+      <img src="./images/maxresdefault.jpeg" width="1200" alt="logo" />
+      <button id="restart-btn">Play Again!</button>
+    </div>
+
+    <div id="winnerscreen" class="container">
+      <img src="./images/elon (24).png" width="300" alt="logo" />
+      <button id="next-btn">Next Level!</button>
+    </div>
+
+    <script src="./obstacles.js"></script>
+    <script src="./game.js"></script>
+    <script src="./richguy.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

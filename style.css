@@ -1,0 +1,165 @@
+canvas {
+  display: flex;
+}
+
+img {
+  animation: shake 0.5s;
+}
+
+#thescore,
+#thetime {
+  font-family: get schwifty;
+  color: chartreuse;
+  text-align: end;
+  width: 100px;
+}
+
+#skulls {
+  width: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-skull {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+#skulls p {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+p {
+  color: aliceblue;
+  font-size: 40px;
+  width: 600px;
+  align-self: center;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: get schwifty;
+  color: chartreuse;
+  margin-bottom: 0px;
+  margin-left: 300px;
+}
+
+.story > h1 {
+  display: flex;
+  justify-content: center;
+}
+
+#arrow {
+  color: chartreuse;
+  display: flex;
+  justify-content: center;
+  font-size: 100px;
+  margin-top: 0px;
+}
+
+body {
+  background-color: black;
+}
+
+.score {
+  display: flex;
+  align-self: flex-start;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-left: 150px;
+}
+.score > p {
+  margin-top: 0;
+  width: 250px;
+}
+
+.main-content {
+  display: flex;
+}
+
+#my-canvas {
+  display: flex;
+}
+
+#gameoverscreen {
+  display: none;
+}
+
+.catch {
+  display: none;
+}
+
+#winnerscreen {
+  display: none;
+}
+
+#start-btn,
+#next-btn,
+#restart-btn {
+  background-color: chartreuse;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  margin-top: 40px;
+  width: 150px;
+}
+
+#countdown {
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+}
+
+#countdown-number {
+  color: chartreuse;
+  display: inline-block;
+  line-height: 40px;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+  stroke-dasharray: 113px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: chartreuse;
+  fill: none;
+  animation: countdown 10s linear infinite forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
