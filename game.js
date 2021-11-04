@@ -1,26 +1,24 @@
 class Game {
   //Properties
-  constructor(score, faceCount, timeRemaining) {
+  constructor(score, faceCount, time) {
     this.bg = new Image();
     this.bg.src = "./images/S2e3_mount_morty_and_summer.png";
     this.richguy = new Richguy();
-    this.isGameOver = false;
     this.hasWon = false;
+    this.gameIsOver = false;
     this.clickedX = 0;
     this.clickedY = 0;
     this.faceArr = [new Faces("./images/faces/pngegg.png", 0)];
-    this.gabBetweenPipes = 200;
     this.score = score;
-    this.faceCount = faceCount + 20;
-    this.timeRemaining = 5 - timeRemaining;
+    this.faceCount = faceCount + 10;
+    this.timeRemaining = time;
     this.intervalId = undefined;
+    this.gameMusic = new Audio("./images/giveusmoney3.mp3");
   }
 
   // Methods
 
   startTimer = () => {
-    console.log("TIMER STARTED");
-
     const updateTimerBound = this.updateTimer.bind(this);
 
     this.intervalId = setInterval(updateTimerBound, 1000);
@@ -30,7 +28,8 @@ class Game {
     this.timeRemaining -= 1;
     console.log(this.timeRemaining);
     if (this.timeRemaining === 0) {
-      this.gameOver();
+      timeDifficulty = 20;
+      this.gameIsOver = true;
     }
   };
 
@@ -42,30 +41,29 @@ class Game {
     theTime.innerText = this.timeRemaining;
   };
 
-  showLevel = () => {
+  addLevel = () => {
     const DOM_img = document.createElement("img");
     DOM_img.style.width = "200px";
     DOM_img.style.padding = "5px";
     DOM_img.src = "images/pngwing.com.png";
-    DOM_img.setAttribute("id", "imageId");
+    DOM_img.classList.add("imageId");
     console.log(DOM_img);
     skullsSection.appendChild(DOM_img);
   };
 
   deleteLevels = () => {
-    const elementToBeRemoved = document.getElementById("imageId");
-    elementToBeRemoved.parentNode.removeChild(elementToBeRemoved);
+    let images = document.getElementsByClassName("imageId");
+    skullsSection.replaceChildren(images);
+    console.log("deleting", skullsSection);
   };
 
   gameOver = () => {
-    this.cancelTimer();
-    this.isGameOver = true;
-    canvas.style.display = "none";
+    console.log("gameover!");
+    console.log(mainSection);
     mainSection.style.display = "none";
     gameoverScreen.style.display = "flex";
-    this.cancelTimer();
     this.deleteLevels();
-    console.log("you lost");
+    this.cancelTimer();
   };
 
   checkIfWon = () => {
@@ -75,15 +73,12 @@ class Game {
       this.richguy.y < this.clickedY &&
       this.richguy.y + this.richguy.height > this.clickedY
     ) {
-      //this.hasWon = true;
-      canvas.style.display = "none";
-      scoreSection.style.display = "none";
-      //levelSection.style.display = "none";  //this needs fixing!
-      winnerscreen.style.display = "flex";
-      //countdown.style.display = "none";
-      this.cancelTimer();
-      this.showLevel();
       this.hasWon = true;
+      mainSection.style.display = "none";
+      winnerscreen.style.display = "flex";
+      this.gameMusic.play();
+      this.cancelTimer();
+      this.addLevel();
     }
   };
 
@@ -141,36 +136,25 @@ class Game {
 
     //Draw elements
     ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
-    scoreSection.style.display = "flex";
+    mainSection.style.display = "flex";
+    //scoreLevels.style.display = "flex";
 
     this.addFaces();
     this.faceArr.forEach((eachFace) => {
       eachFace.drawFaces();
     });
     this.richguy.drawRichGuy();
-
+    //this.audio.play();
+    //this.timeLevel();
     this.updateTime();
     this.checkIfWon();
     this.increaseScore();
-    //this.showLevel();
 
-    if (!this.hasWon) {
+    //this.showLevel();
+    if (this.gameIsOver) {
+      this.gameOver();
+    } else if (!this.hasWon) {
       requestAnimationFrame(this.gameLoop);
     }
   };
 }
-
-/*
-
-var countdownNumberEl = document.getElementById("countdown-number");
-var countdown = 10;
-countdownNumberEl.textContent = countdown;
-setInterval(function () {
-  countdown = --countdown <= 0 ? 10 : countdown;
-  countdownNumberEl.textContent = countdown;
-  if (countdown === 1) {
-    this.gameOver();
-  }
-}, 1000);
-
-*/
