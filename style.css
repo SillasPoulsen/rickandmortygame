@@ -43,7 +43,7 @@ canvas {
 
 p {
   color: aliceblue;
-  font-size: 40px;
+  font-size: 30px;
   width: 600px;
   align-self: center;
   text-align: center;
@@ -98,7 +98,7 @@ body {
   align-self: flex-start;
   flex-wrap: wrap;
   margin-top: 0;
-  margin-left: 150px;
+  margin-left: 90px;
 }
 .score > p {
   margin-top: 0;
