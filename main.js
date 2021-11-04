@@ -1,7 +1,7 @@
 // CANVAS SEUTP
 let canvas = document.querySelector("#my-canvas");
 let ctx = canvas.getContext("2d");
-let time = 1000;
+let time = 20;
 let timeDifficulty = 20;
 
 let winnerScreen = document.querySelector("#winnerscreen");
