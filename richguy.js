@@ -9,8 +9,8 @@ class Richguy {
     ];
     this.randomRichGuy = Math.floor(Math.random() * 3);
     this.richguyImage.src = this.arrayOfImages[this.randomRichGuy];
-    this.width = 100;
-    this.height = 150;
+    this.width = 80;
+    this.height = 100;
     this.x = Math.random() * (canvas.width - 150);
     this.y = Math.random() * (canvas.height - 150);
   }

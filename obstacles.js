@@ -3,8 +3,8 @@ class Faces {
   constructor(srcImage) {
     this.Image = new Image();
     this.Image.src = srcImage; // dynamic
-    this.width = 150;
-    this.height = 150;
+    this.width = 80;
+    this.height = 100;
     this.x = Math.random() * (canvas.width - 50);
     this.y = Math.random() * (canvas.height - 50);
   }

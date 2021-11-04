@@ -43,7 +43,7 @@ class Game {
 
   addLevel = () => {
     const DOM_img = document.createElement("img");
-    DOM_img.style.width = "150px";
+    DOM_img.style.width = "120px";
     DOM_img.style.padding = "5px";
     DOM_img.src = "images/pngwing.com.png";
     DOM_img.classList.add("imageId");
