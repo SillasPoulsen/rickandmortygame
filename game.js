@@ -60,6 +60,7 @@ class Game {
   gameOver = () => {
     console.log("gameover!");
     console.log(mainSection);
+    eat.style.display = "none";
     mainSection.style.display = "none";
     gameoverScreen.style.display = "flex";
     this.deleteLevels();
@@ -74,6 +75,7 @@ class Game {
       this.richguy.y + this.richguy.height > this.clickedY
     ) {
       this.hasWon = true;
+      eat.style.display = "none";
       mainSection.style.display = "none";
       winnerscreen.style.display = "flex";
       this.gameMusic.play();
@@ -137,6 +139,7 @@ class Game {
     //Draw elements
     ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
     mainSection.style.display = "flex";
+    eat.style.display = "flex";
     //scoreLevels.style.display = "flex";
 
     this.addFaces();

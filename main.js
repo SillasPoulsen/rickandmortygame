@@ -14,7 +14,7 @@ let thescore = document.querySelector("#thescore");
 let theTime = document.querySelector("#thetime");
 //let scoreSection = document.querySelector(".score");
 let mainSection = document.querySelector(".main-content");
-
+let eat = document.querySelector(".eat");
 let skullsSection = document.querySelector(".img-skull");
 //let imgSkull = document.querySelector("#imageId");
 
