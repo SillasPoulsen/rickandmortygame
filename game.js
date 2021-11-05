@@ -140,15 +140,12 @@ class Game {
     ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
     mainSection.style.display = "flex";
     eat.style.display = "flex";
-    //scoreLevels.style.display = "flex";
 
     this.addFaces();
     this.faceArr.forEach((eachFace) => {
       eachFace.drawFaces();
     });
     this.richguy.drawRichGuy();
-    //this.audio.play();
-    //this.timeLevel();
     this.updateTime();
     this.checkIfWon();
     this.increaseScore();
